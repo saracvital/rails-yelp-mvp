@@ -1,0 +1,17 @@
+<%= simple_form_for(@restaurant) do |f| %>
+  <%= f.error_notification %>
+  <%= f.error_notification message: f.object.errors[:base].to_sentence if f.object.errors[:base].present? %>
+
+  <div class="form-inputs">
+    <p><%= f.input :name %></p>
+    <p><%= f.input :address %></p>
+    <p><%= f.input :phone_number %></p>
+    <p><%= f.input :category, collection: ['chinese', 'italian', 'mexican', 'french', 'japanese'], prompt: "Select a category"  %>
+
+    <div class="form-actions btn btn-primary">
+     <%= f.button :submit %>
+    </div>
+  </div>
+
+
+<% end %>
